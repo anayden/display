@@ -14,9 +14,17 @@ class PostsController < ApplicationController
 
   def update; end
 
-  def edit; end
+  def edit
+    @post = Post.includes(:components).find(edit_post_params)
+  end
 
   def destroy; end
 
   def show; end
+
+  private
+
+  def edit_post_params
+    params.require(:id)
+  end
 end

@@ -1,0 +1,18 @@
+# == Schema Information
+#
+# Table name: post_templates
+#
+#  id         :integer          not null, primary key
+#  name       :string           not null
+#  template   :json             not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+one:
+  name: MyString
+  template: MyString
+
+two:
+  name: MyString
+  template: MyString
