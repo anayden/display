@@ -15,7 +15,7 @@ const BooleanComponentEdit  = ({ component }) => {
         }
     }
     return (
-        <form className="component-edit row row-cols-lg-auto g-3" onSubmit={onSubmit}>
+        <form className="component-edit row row-cols-lg-auto g-3" onSubmit={onSubmit} id={`component-form-${component.id}`}>
             <div className="col-12">
                 <div className="form-check">
                     <input type="checkbox" className="form-check-input" id={`component-${component.id}`} checked={value.toString() === "true"} onChange={(e) => setValue(e.target.checked.toString())}/>

@@ -21,7 +21,7 @@ const StringComponentEdit  = ({ component }) => {
         setVal(event.target.value);
     }
     return (
-        <form className="component-edit form row row-cols-lg-auto g-3" onSubmit={onSubmit}>
+        <form className="component-edit form row row-cols-lg-auto g-3" onSubmit={onSubmit} id={`component-form-${component.id}`}>
             <div className="col-12">
                 <label className="form-label" htmlFor={`component-value-${component.id}`}>{component.name}</label>
             </div>

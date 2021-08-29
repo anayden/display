@@ -7,6 +7,7 @@ class ComponentsController < ApplicationController
   def update
     @component = Component.find(params[:id])
     @component.update!(update_component_params)
+    ActionCable.server.broadcast("post_#{@component.post_id}", @component.as_json)
     render json: @component
   end
 

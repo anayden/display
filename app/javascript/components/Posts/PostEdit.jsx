@@ -1,7 +1,11 @@
 import React from "react";
 import ComponentsEditForm from "../PostComponents/ComponentsEditForm";
+import * as ActionCable from '@rails/actioncable'
+
+
 
 const PostEdit  = ({ post, components}) => {
+    ActionCable.logger.enabled = true
     return (
         <div className="vw-100 vh-100 primary-color d-flex justify-content-center">
             <div className="jumbotron jumbotron-fluid bg-transparent">

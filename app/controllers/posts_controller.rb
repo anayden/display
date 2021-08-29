@@ -3,7 +3,6 @@ class PostsController < ApplicationController
 
   def list
     @posts = Post.where(component_id: nil).all
-    # @posts = @posts.map { |post|  post.title = post.title }
     render json: @posts
   end
 
