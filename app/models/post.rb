@@ -17,5 +17,5 @@
 #
 class Post < ApplicationRecord
   belongs_to :component, optional: true
-  has_many :components
+  has_many :components, dependent: :destroy
 end

@@ -1,16 +1,9 @@
 class PostTemplatesController < ApplicationController
-  skip_before_action :verify_authenticity_token, only: [:create_from]
 
   def create_from
-    template = PostTemplate.find(create_params)
-    post = Post.create
+    template = PostTemplate.find(params[:id])
+    post = Post.create!(component_id: params[:component_id])
     template.use_for(post)
-    redirect_to edit_post_path(post)
-  end
-
-  private
-
-  def create_params
-    params.require(:id)
+    render json: post
   end
 end

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class PostsController < ApplicationController
   def index; end
 
@@ -15,16 +13,14 @@ class PostsController < ApplicationController
   def update; end
 
   def edit
-    @post = Post.includes(:components).find(edit_post_params)
+    @post = Post.includes(:components).find(params[:id])
   end
 
-  def destroy; end
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy!
+    head :no_content
+  end
 
   def show; end
-
-  private
-
-  def edit_post_params
-    params.require(:id)
-  end
 end

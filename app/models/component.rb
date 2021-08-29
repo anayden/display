@@ -21,6 +21,6 @@ class Component < ApplicationRecord
 
   order :ord
 
-  validates :component_type, presence: true, inclusion: { in: %w(string boolean reference)}
+  validates :component_type, presence: true, inclusion: { in: %w[string boolean reference] }
   validates :name, :ord, presence: true
 end
