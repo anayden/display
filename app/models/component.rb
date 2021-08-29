@@ -4,9 +4,10 @@
 #
 #  id             :integer          not null, primary key
 #  component_type :string           not null
+#  internal_name  :string           not null
 #  name           :string           not null
 #  ord            :integer          not null
-#  value          :json
+#  value          :string
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  post_id        :integer
@@ -21,6 +22,7 @@ class Component < ApplicationRecord
 
   order :ord
 
-  validates :component_type, presence: true, inclusion: { in: %w[string boolean reference] }
+  validates :component_type, presence: true, inclusion: { in: %w[string boolean reference text] }
   validates :name, :ord, presence: true
+  validates :internal_name, :ord, presence: true
 end

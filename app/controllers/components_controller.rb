@@ -1,4 +1,9 @@
 class ComponentsController < ApplicationController
+  def index
+    @components = Component.where(post_id: params[:post_id]).all
+    render json: @components
+  end
+
   def update
     @component = Component.find(params[:id])
     @component.update!(update_component_params)

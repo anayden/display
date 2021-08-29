@@ -10,16 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_21_123142) do
+ActiveRecord::Schema.define(version: 2021_08_29_191214) do
 
   create_table "components", force: :cascade do |t|
     t.string "component_type", null: false
     t.integer "ord", null: false
-    t.json "value"
+    t.string "value"
     t.integer "post_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name", null: false
+    t.string "internal_name", null: false
     t.index ["post_id"], name: "index_components_on_post_id"
   end
 

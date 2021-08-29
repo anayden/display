@@ -4,9 +4,10 @@
 #
 #  id             :integer          not null, primary key
 #  component_type :string           not null
+#  internal_name  :string           not null
 #  name           :string           not null
 #  ord            :integer          not null
-#  value          :json
+#  value          :string
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  post_id        :integer

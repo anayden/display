@@ -1,23 +1,23 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { BsX } from 'react-icons/bs';
 import axios from "axios";
 
 const Posts = ({ posts }) => {
+    const [postList, setPostList] = useState(posts)
     const deletePost = async (postId) => {
-        console.log(`delete ${postId}`);
         try {
             await axios.delete(`/posts/${postId}`)
-            window.location.reload();
+            setPostList(postList.filter(post => post.id !== postId));
         } catch (errors) {
             console.log(errors);
         }
     }
     return (
         <>
-            {posts.map((post) => {
+            {postList.map((post) => {
                 return (
                     <div key={post.id}>
-                        <a href={`/posts/${post.id}/edit`}>{post.id}</a>
+                        <a href={`/posts/${post.id}/edit`}>Материал {post.id}</a>
                         <BsX style={{cursor: 'pointer'}} onClick={() => deletePost(post.id)}/>
                     </div>
                 )

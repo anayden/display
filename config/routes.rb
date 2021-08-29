@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :posts do
     collection do
       get :list
+      get :for_component
     end
   end
   resources :components

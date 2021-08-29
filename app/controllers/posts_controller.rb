@@ -2,7 +2,8 @@ class PostsController < ApplicationController
   def index; end
 
   def list
-    @posts = Post.all
+    @posts = Post.where(component_id: nil).all
+    # @posts = @posts.map { |post|  post.title = post.title }
     render json: @posts
   end
 
@@ -10,10 +11,8 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-  def update; end
-
   def edit
-    @post = Post.includes(:components).find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def destroy
@@ -22,5 +21,13 @@ class PostsController < ApplicationController
     head :no_content
   end
 
-  def show; end
+  def show
+    @post = Post.find(params[:id])
+    render json: @post
+  end
+
+  def for_component
+    @posts = Post.where(component_id: params[:component_id]).all
+    render json: @posts
+  end
 end

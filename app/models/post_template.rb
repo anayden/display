@@ -14,7 +14,7 @@ class PostTemplate < ApplicationRecord
 
   def use_for(post)
     template.each do |component_template|
-      post.components.create(component_template)
+      post.components.create!(component_template)
     end
   end
 end
