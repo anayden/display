@@ -18,8 +18,8 @@ const ReferencePosts = ({ posts }) => {
             {postList.map((post) => {
                 return (
                     <div key={post.id}>
-                        Комментарий id={post.id}
-                        <BsX style={{cursor: 'pointer'}} onClick={() => deletePost(post.id)}/>
+                        <h3>Комментарий id={post.id}</h3>
+                        <button onClick={() => deletePost(post.id)} className="btn btn-outline-danger">Удалить</button>
                         <ComponentsEditForm postId={post.id} />
                     </div>
                 )

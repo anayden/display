@@ -1,10 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import StringComponentEdit from "./StringComponentEdit";
-import BooleanComponentEdit from "./BooleanComponentEdit";
-import ReferenceComponentEdit from "./ReferenceComponentEdit";
 import axios from "axios";
-import TextComponentEdit from "./TextComponentEdit";
 import consumer from "../../channels/consumer";
+import ComponentEdit from "./ComponentEdit";
 
 const ComponentsEditForm = ({postId}) => {
     const [loading, setLoading] = useState(true);
@@ -36,13 +33,13 @@ const ComponentsEditForm = ({postId}) => {
         components.map( (component) => {
             switch (component.component_type) {
                 case "string":
-                    return <StringComponentEdit key={component.id} component={component}/>
+                    return <ComponentEdit.String key={component.id} component={component}/>
                 case "text":
-                    return <TextComponentEdit key={component.id} component={component}/>
+                    return <ComponentEdit.Text key={component.id} component={component}/>
                 case "boolean":
-                    return <BooleanComponentEdit key={component.id} component={component}/>
+                    return <ComponentEdit.Boolean key={component.id} component={component}/>
                 case "reference":
-                    return <ReferenceComponentEdit key={component.id} component={component}/>
+                    return <ComponentEdit.Reference key={component.id} component={component}/>
             }
         })
     );
